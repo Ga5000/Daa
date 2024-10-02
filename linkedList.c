@@ -1,12 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node {
+struct Node {
     int data;
-    struct node *next;
-}LinkedList;
+    struct Node *next;
+};
+
+void transverseLinkedList(struct Node *head);
 
 int main(void) {
-    LinkedList* head = (LinkedList *) malloc(sizeof(LinkedList));
+   struct Node* head =  malloc(sizeof(struct Node));
     free(head);
+}
+
+void traverseLinkedList(struct Node* head){
+
+    struct Node* current = head;
+
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->next;
+    }
+
+    printf("\n");
 }
