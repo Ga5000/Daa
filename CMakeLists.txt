@@ -3,5 +3,6 @@ project(DataStructures C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(DataStructures main.c
-        linkedList.c)
+add_executable(MainExecutable main.c)
+
+add_executable(LinkedListExecutable linkedList.c)

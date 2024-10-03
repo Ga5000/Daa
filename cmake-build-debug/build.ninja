@@ -41,43 +41,70 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target DataStructures
+# Object build statements for EXECUTABLE target MainExecutable
 
 
 #############################################
-# Order-only phony target for DataStructures
+# Order-only phony target for MainExecutable
 
-build cmake_object_order_depends_target_DataStructures: phony || .
+build cmake_object_order_depends_target_MainExecutable: phony || .
 
-build CMakeFiles/DataStructures.dir/main.c.obj: C_COMPILER__DataStructures_unscanned_Debug C$:/Users/gbrli/CLionProjects/DataStructures/main.c || cmake_object_order_depends_target_DataStructures
-  DEP_FILE = CMakeFiles\DataStructures.dir\main.c.obj.d
+build CMakeFiles/MainExecutable.dir/main.c.obj: C_COMPILER__MainExecutable_unscanned_Debug C$:/Users/gbrli/CLionProjects/DataStructures/main.c || cmake_object_order_depends_target_MainExecutable
+  DEP_FILE = CMakeFiles\MainExecutable.dir\main.c.obj.d
   FLAGS = -g -std=gnu2x -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DataStructures.dir
-  OBJECT_FILE_DIR = CMakeFiles\DataStructures.dir
-
-build CMakeFiles/DataStructures.dir/linkedList.c.obj: C_COMPILER__DataStructures_unscanned_Debug C$:/Users/gbrli/CLionProjects/DataStructures/linkedList.c || cmake_object_order_depends_target_DataStructures
-  DEP_FILE = CMakeFiles\DataStructures.dir\linkedList.c.obj.d
-  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\DataStructures.dir
-  OBJECT_FILE_DIR = CMakeFiles\DataStructures.dir
+  OBJECT_DIR = CMakeFiles\MainExecutable.dir
+  OBJECT_FILE_DIR = CMakeFiles\MainExecutable.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target DataStructures
+# Link build statements for EXECUTABLE target MainExecutable
 
 
 #############################################
-# Link the executable DataStructures.exe
+# Link the executable MainExecutable.exe
 
-build DataStructures.exe: C_EXECUTABLE_LINKER__DataStructures_Debug CMakeFiles/DataStructures.dir/main.c.obj CMakeFiles/DataStructures.dir/linkedList.c.obj
+build MainExecutable.exe: C_EXECUTABLE_LINKER__MainExecutable_Debug CMakeFiles/MainExecutable.dir/main.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\DataStructures.dir
+  OBJECT_DIR = CMakeFiles\MainExecutable.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = DataStructures.exe
-  TARGET_IMPLIB = libDataStructures.dll.a
-  TARGET_PDB = DataStructures.exe.dbg
+  TARGET_FILE = MainExecutable.exe
+  TARGET_IMPLIB = libMainExecutable.dll.a
+  TARGET_PDB = MainExecutable.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target LinkedListExecutable
+
+
+#############################################
+# Order-only phony target for LinkedListExecutable
+
+build cmake_object_order_depends_target_LinkedListExecutable: phony || .
+
+build CMakeFiles/LinkedListExecutable.dir/linkedList.c.obj: C_COMPILER__LinkedListExecutable_unscanned_Debug C$:/Users/gbrli/CLionProjects/DataStructures/linkedList.c || cmake_object_order_depends_target_LinkedListExecutable
+  DEP_FILE = CMakeFiles\LinkedListExecutable.dir\linkedList.c.obj.d
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LinkedListExecutable.dir
+  OBJECT_FILE_DIR = CMakeFiles\LinkedListExecutable.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target LinkedListExecutable
+
+
+#############################################
+# Link the executable LinkedListExecutable.exe
+
+build LinkedListExecutable.exe: C_EXECUTABLE_LINKER__LinkedListExecutable_Debug CMakeFiles/LinkedListExecutable.dir/linkedList.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\LinkedListExecutable.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = LinkedListExecutable.exe
+  TARGET_IMPLIB = libLinkedListExecutable.dll.a
+  TARGET_PDB = LinkedListExecutable.exe.dbg
 
 
 #############################################
@@ -105,7 +132,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build DataStructures: phony DataStructures.exe
+build LinkedListExecutable: phony LinkedListExecutable.exe
+
+build MainExecutable: phony MainExecutable.exe
 
 # =============================================================================
 # Folder targets.
@@ -115,7 +144,7 @@ build DataStructures: phony DataStructures.exe
 #############################################
 # Folder: C:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug
 
-build all: phony DataStructures.exe
+build all: phony MainExecutable.exe LinkedListExecutable.exe
 
 # =============================================================================
 # Built-in targets
