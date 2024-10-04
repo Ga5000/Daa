@@ -10,8 +10,9 @@ struct Node {
     struct Node *next;
 };
 
-void transverseLinkedList(struct Node *head);
-bool searchLinkedList(struct Node *head, int target);
+void transverseLinkedList(const struct Node *head);
+bool searchLinkedList(const struct Node *head, int target);
+void add(struct Node *head, int data);
 
 int main(void) {
    struct Node* head =  malloc(sizeof(struct Node));
@@ -24,6 +25,7 @@ int main(void) {
     second->next = third;
     third->data = 30;
     third->next = nullptr;
+    add(head,40);
 
     transverseLinkedList(head);
     printf("%d",searchLinkedList(head, 30));
@@ -35,9 +37,8 @@ int main(void) {
     return 0;
 }
 
-void transverseLinkedList(struct Node* head){
-
-    struct Node* current = head;
+void transverseLinkedList(const struct Node* head){
+    const struct Node* current = head;
 
     while (current != NULL) {
         printf("%d ", current->data);
@@ -47,7 +48,7 @@ void transverseLinkedList(struct Node* head){
     printf("\n");
 }
 
-bool searchLinkedList(struct Node* head, int target) {
+bool searchLinkedList(const struct Node* head, const int target) {
     while(head != NULL) {
         if(head->data == target) {
             return true;
@@ -55,4 +56,22 @@ bool searchLinkedList(struct Node* head, int target) {
         head = head->next;
     }
         return false;
+}
+
+void add(struct Node* head, const int data) {
+    struct Node* newNode = malloc(sizeof(struct Node));
+    if(newNode == NULL) {
+        fprintf(stderr,"Memory allocation failed");
+    }
+    newNode->data = data;
+    newNode->next = nullptr;
+    if(head == NULL) {
+        head = newNode;
+    }else {
+        struct Node* current = head;
+        while(current->next != NULL) {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
 }
