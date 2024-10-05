@@ -13,6 +13,7 @@ struct Node {
 void transverseLinkedList(const struct Node *head);
 bool searchLinkedList(const struct Node *head, int target);
 void add(struct Node *head, int data);
+void delete(struct Node *head, int target);
 
 int main(void) {
    struct Node* head =  malloc(sizeof(struct Node));
@@ -27,6 +28,8 @@ int main(void) {
     third->next = nullptr;
     add(head,40);
 
+    transverseLinkedList(head);
+    delete(head,30);
     transverseLinkedList(head);
     printf("%d",searchLinkedList(head, 30));
 
@@ -74,4 +77,23 @@ void add(struct Node* head, const int data) {
         }
         current->next = newNode;
     }
+}
+
+void delete(struct Node* head, const int target) {
+    struct Node* temp = head;
+    struct Node* prev = nullptr;
+    while(temp != NULL && temp->data == target) {
+        head = temp->next;
+        free(temp);
+        return;
+    }
+    while(temp != NULL && temp->data != target) {
+        prev = temp;
+        temp = temp->next;
+    }
+    if(temp == NULL) {
+        fprintf(stderr,"Memory allocation failed");
+    }
+    prev->next = temp->next;
+    free(temp);
 }
