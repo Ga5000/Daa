@@ -106,6 +106,39 @@ build LinkedListExecutable.exe: C_EXECUTABLE_LINKER__LinkedListExecutable_Debug 
   TARGET_IMPLIB = libLinkedListExecutable.dll.a
   TARGET_PDB = LinkedListExecutable.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target DoublyLinkedList
+
+
+#############################################
+# Order-only phony target for DoublyLinkedList
+
+build cmake_object_order_depends_target_DoublyLinkedList: phony || .
+
+build CMakeFiles/DoublyLinkedList.dir/doublyLinkedList.c.obj: C_COMPILER__DoublyLinkedList_unscanned_Debug C$:/Users/gbrli/CLionProjects/DataStructures/doublyLinkedList.c || cmake_object_order_depends_target_DoublyLinkedList
+  DEP_FILE = CMakeFiles\DoublyLinkedList.dir\doublyLinkedList.c.obj.d
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\DoublyLinkedList.dir
+  OBJECT_FILE_DIR = CMakeFiles\DoublyLinkedList.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target DoublyLinkedList
+
+
+#############################################
+# Link the executable DoublyLinkedList.exe
+
+build DoublyLinkedList.exe: C_EXECUTABLE_LINKER__DoublyLinkedList_Debug CMakeFiles/DoublyLinkedList.dir/doublyLinkedList.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\DoublyLinkedList.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = DoublyLinkedList.exe
+  TARGET_IMPLIB = libDoublyLinkedList.dll.a
+  TARGET_PDB = DoublyLinkedList.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -132,6 +165,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build DoublyLinkedList: phony DoublyLinkedList.exe
+
 build LinkedListExecutable: phony LinkedListExecutable.exe
 
 build MainExecutable: phony MainExecutable.exe
@@ -144,7 +179,7 @@ build MainExecutable: phony MainExecutable.exe
 #############################################
 # Folder: C:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug
 
-build all: phony MainExecutable.exe LinkedListExecutable.exe
+build all: phony MainExecutable.exe LinkedListExecutable.exe DoublyLinkedList.exe
 
 # =============================================================================
 # Built-in targets
