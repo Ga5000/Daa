@@ -4,34 +4,61 @@
 #define true 1
 #define false 0
 
+
 struct Node {
     int data;
     struct Node* next;
     struct Node* prev;
 };
 
-void transverseDoublyLinkedList(const struct Node *head);
-bool searchDoublyLinkedList(const struct Node *head, int target);
+void transverseDoublyLinkedList(const struct Node* head);
+bool searchDoublyLinkedList(const struct Node* head, int target);
+void insertNode(struct Node** head, int data, int position);
 
 int main(void) {
-    struct Node* head = malloc(sizeof(struct Node));
-    struct Node* second = malloc(sizeof(struct Node));
+    struct Node* head = NULL;
 
-    head->data = 10;
-    head->next = second;
-    head->prev = NULL;
-
-    second->data = 20;
-    second->next = NULL;
-    second->prev = head;
+    insertNode(&head, 10, 1); // insert at end
+    insertNode(&head, 20, 1);
+    insertNode(&head, 5, 0); // insert at start
+    insertNode(&head, 30, 1);
 
     transverseDoublyLinkedList(head);
-     printf("%d", searchDoublyLinkedList(head, 20));
+    printf("%d\n", searchDoublyLinkedList(head, 20));
 
-    free(second);
-    free(head);
+    struct Node* current = head;
+    while (current != NULL) {
+        struct Node *nextNode = current->next;
+        free(current);
+        current = nextNode;
+    }
 
-    return 0;
+}
+
+void insertNode(struct Node** head, int data, int position) {
+    struct Node* newNode = malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    newNode->prev = NULL;
+
+    if (position == 0) {
+        newNode->next = *head;
+        if (*head != NULL) {
+            (*head)->prev = newNode;
+        }
+        *head = newNode;
+    } else {
+        if (*head == NULL) {
+            *head = newNode;
+        } else {
+            struct Node* temp = *head;
+            while (temp->next != NULL) {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+            newNode->prev = temp;
+        }
+    }
 }
 
 void transverseDoublyLinkedList(const struct Node* head) {
