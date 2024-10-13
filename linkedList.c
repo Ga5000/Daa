@@ -97,7 +97,6 @@ void deleteNode(struct Node** headRef, const int target) {
         temp = temp->next;
     }
 
-    // If the node wasn't found
     if (temp == NULL) {
         printf("Node with data %d not found.\n", target);
         return;
