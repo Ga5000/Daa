@@ -139,6 +139,39 @@ build DoublyLinkedList.exe: C_EXECUTABLE_LINKER__DoublyLinkedList_Debug CMakeFil
   TARGET_IMPLIB = libDoublyLinkedList.dll.a
   TARGET_PDB = DoublyLinkedList.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target BinaryTree
+
+
+#############################################
+# Order-only phony target for BinaryTree
+
+build cmake_object_order_depends_target_BinaryTree: phony || .
+
+build CMakeFiles/BinaryTree.dir/binaryTree.c.obj: C_COMPILER__BinaryTree_unscanned_Debug C$:/Users/gbrli/CLionProjects/DataStructures/binaryTree.c || cmake_object_order_depends_target_BinaryTree
+  DEP_FILE = CMakeFiles\BinaryTree.dir\binaryTree.c.obj.d
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\BinaryTree.dir
+  OBJECT_FILE_DIR = CMakeFiles\BinaryTree.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target BinaryTree
+
+
+#############################################
+# Link the executable BinaryTree.exe
+
+build BinaryTree.exe: C_EXECUTABLE_LINKER__BinaryTree_Debug CMakeFiles/BinaryTree.dir/binaryTree.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\BinaryTree.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = BinaryTree.exe
+  TARGET_IMPLIB = libBinaryTree.dll.a
+  TARGET_PDB = BinaryTree.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -165,6 +198,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build BinaryTree: phony BinaryTree.exe
+
 build DoublyLinkedList: phony DoublyLinkedList.exe
 
 build LinkedListExecutable: phony LinkedListExecutable.exe
@@ -179,7 +214,7 @@ build MainExecutable: phony MainExecutable.exe
 #############################################
 # Folder: C:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug
 
-build all: phony MainExecutable.exe LinkedListExecutable.exe DoublyLinkedList.exe
+build all: phony MainExecutable.exe LinkedListExecutable.exe DoublyLinkedList.exe BinaryTree.exe
 
 # =============================================================================
 # Built-in targets

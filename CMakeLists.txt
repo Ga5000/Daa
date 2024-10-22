@@ -7,3 +7,4 @@ add_executable(MainExecutable main.c)
 
 add_executable(LinkedListExecutable linkedList.c)
 add_executable(DoublyLinkedList doublyLinkedList.c)
+add_executable(BinaryTree binaryTree.c)
