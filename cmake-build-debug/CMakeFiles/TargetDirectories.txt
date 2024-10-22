@@ -1,5 +1,6 @@
 C:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug/CMakeFiles/MainExecutable.dir
 C:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug/CMakeFiles/LinkedListExecutable.dir
 C:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug/CMakeFiles/DoublyLinkedList.dir
+C:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug/CMakeFiles/BinaryTree.dir
 C:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/gbrli/CLionProjects/DataStructures/cmake-build-debug/CMakeFiles/rebuild_cache.dir
